@@ -1,11 +1,41 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import {connect} from 'react-redux'
+import {postSmurf} from '../actions'
 
+const blankForm = {
+    name:'',
+    age:'',
+    height:''
+}
 
 function Form(props){
+    const [formValues, setFormValues] = useState(blankForm)
 
+    // useEffect(() => {
+    //     handleChanges
+    // },[formValues])
+
+    function handleChanges(event){
+        // debugger
+        console.log(event)
+        const name = event.target.name
+        const value = event.target.value
+
+        setFormValues({
+            ...formValues,
+            [name]:value
+        })
+    }
+
+    function handleSubmit(event){
+        event.preventDefault()
+        props.dispatch(postSmurf(formValues))
+        
+        setFormValues(blankForm)
+    }
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <h2>Add New Smurf</h2>
             <label>
                 Name:
@@ -13,8 +43,8 @@ function Form(props){
                     type='text'
                     placeholder='Punchy'
                     name='name'
-                    // value=''
-                    // onChange=''
+                    value={formValues.name}
+                    onChange={handleChanges}
                 />
             </label>
             <br/>
@@ -24,8 +54,8 @@ function Form(props){
                     type='text'
                     placeholder='354'
                     name='age'
-                    // value=''
-                    // onChange=''
+                    value={formValues.age}
+                    onChange={handleChanges}
                     />
             </label>
             <br/>
@@ -35,12 +65,22 @@ function Form(props){
                     type='text'
                     placeholder='between 2 and 6 cm'
                     name='height'
-                    // value=''
-                    // onChange=''
-                />
+                    value={formValues.height}
+                    onChange={handleChanges}
+                    />
             </label>
+            <br/>
+            <button>Submit</button>
         </form>
     )
 }
 
-export default Form
+function mapStateToProps(state){
+    return{
+        name:state.name,
+        age:state.age,
+        height:state.height
+    }
+}
+
+export default connect(mapStateToProps)(Form)

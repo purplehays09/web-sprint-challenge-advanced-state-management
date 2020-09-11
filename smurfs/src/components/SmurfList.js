@@ -15,7 +15,7 @@ function SmurfList(props){
 
         })
         .catch(err => console.log("THIS IS THE AXIOS ERROR ===> ",err))
-    },[])
+    },[props.smurfsArray])
     return(
         <div>
             <h2>SmurfList Level</h2>

@@ -7,3 +7,10 @@ export function fetchSmurfs(smurfsArray){
         payload:smurfsArray
     }
 }
+
+export function postSmurf(newSmurf){
+    return{
+        type:POST_SMURF,
+        payload:newSmurf
+    }
+}
