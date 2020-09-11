@@ -1,9 +1,9 @@
-export const FETCH_SMURF = 'FETCH_SMURF'
+export const FETCH_SMURFS = 'FETCH_SMURF'
 export const POST_SMURF = 'POST_SMURF'
 
-export function fetchSmurf(smurfs){
+export function fetchSmurfs(smurfsArray){
     return{
-        type:FETCH_SMURF,
-        payload:smurfs
+        type:FETCH_SMURFS,
+        payload:smurfsArray
     }
 }
