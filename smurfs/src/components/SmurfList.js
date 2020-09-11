@@ -24,9 +24,10 @@ function SmurfList(props){
                 props.smurfsArray.map(smurf => {
                     return(
                         <Smurf
-                        name={smurf.name}
-                        age={smurf.age}
-                        height={smurf.height}                        
+                            key={smurf.id}
+                            name={smurf.name}
+                            age={smurf.age}
+                            height={smurf.height}                        
                         />
                 )
                 })

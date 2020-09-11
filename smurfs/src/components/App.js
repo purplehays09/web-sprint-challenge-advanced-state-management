@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import SmurfList from './SmurfList'
+import Form from './Form'
 class App extends Component {
   render() {
     return (
@@ -8,6 +9,9 @@ class App extends Component {
         <h1>App Level</h1>
 
         <SmurfList
+        
+        />
+        <Form
         
         />
         
