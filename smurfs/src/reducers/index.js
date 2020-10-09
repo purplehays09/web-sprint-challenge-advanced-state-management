@@ -1,5 +1,3 @@
-const { FETCH_SMURF, POST_SMURF } = require("../actions")
-
 import {FETCH_SMURF,POST_SMURF} from '../actions'
 import axios from 'axios'
 
